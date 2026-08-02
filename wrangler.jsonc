@@ -10,7 +10,7 @@
     "run_worker_first": ["/api/*"]
   },
   "vars": {
-    "UPLOAD_TOKEN": "CHANGE_ME_TO_A_LONG_RANDOM_STRING"
+    "UPLOAD_TOKEN": xK9m2vP7qR3wL8nT4bZ6yF1jH5c
   },
   "d1_databases": [
     {
