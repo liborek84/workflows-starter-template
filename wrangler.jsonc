@@ -1,54 +1,33 @@
-
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
-	"$schema": "node_modules/wrangler/config-schema.json"2946e7d3-5457-479c-b34c-bf44ab9c3668
-
-	"name": "workflows-starter-template",
-	"main": "worker/index.ts",
-	"compatibility_date": "2025-10-08",
-	"assets": {
-		"directory": "./dist",
-		"not_found_handling": "single-page-application"
-	},
-	"observability": {
-		"enabled": true
-	},
-	/**
-	 * Workflows
-	 * Define Workflows to orchestrate multi-step processes
-	 * https://developers.cloudflare.com/workflows/
-	 */
-	"workflows": [
-		{
-			"name": "my-workflow",
-			"binding": "MY_WORKFLOW",
-			"class_name": "MyWorkflow"
-		}
-	],
-	/**
-	 * Durable Objects
-	 * Used for WebSocket state management and real-time updates
-	 * https://developers.cloudflare.com/durable-objects/
-	 */
-	"durable_objects": {
-		"bindings": [
-			{
-				"name": "WORKFLOW_STATUS",
-				"class_name": "WorkflowStatusDO"
-			}
-		]
-	},
-	/**
-	 * Migrations
-	 * Required for Durable Objects
-	 */
-	"migrations": [
-		{
-			"tag": "v1",
-			"new_sqlite_classes": ["WorkflowStatusDO"]
-		}
-	],
-	"upload_source_maps": true
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "mojemeteo",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    "UPLOAD_TOKEN": "CHANGE_ME_TO_A_LONG_RANDOM_STRING"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mojemeteo-db",
+      "database_id": "2946e7d3-5457-479c-b34c-bf44ab9c3668"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "mojemeteo.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.mojemeteo.com",
+      "custom_domain": true
+    }
+  ]
 }
+
