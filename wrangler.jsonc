@@ -3,7 +3,8 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
+	"$schema": "node_modules/wrangler/config-schema.json"2946e7d3-5457-479c-b34c-bf44ab9c3668
+
 	"name": "workflows-starter-template",
 	"main": "worker/index.ts",
 	"compatibility_date": "2025-10-08",
